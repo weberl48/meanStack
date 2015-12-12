@@ -1,0 +1,21 @@
+// load the express package and create our app
+var express = require('express')
+var app = express();
+var path = require('path');
+
+//send out index.html file to the user for the home package
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname +'/index.html'));
+});
+
+app.route('/login')
+  //show the for (GET http://localhost:3000/login)
+  .get(function(req,res){
+    res.send('this is the login form');
+  })
+
+  //process the form (POST http://localhost:3000/login)
+  /post(function(req,res){
+    console.log('processing');
+    res.send('processing the login form')
+  })
